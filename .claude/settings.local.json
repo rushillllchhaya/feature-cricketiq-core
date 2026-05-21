@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(git init *)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(npm.cmd *)",
+      "Bash(cmd.exe *)",
+      "Bash(cmd *)",
+      "Bash(env *)",
+      "Bash(nvm *)",
+      "Read(//c/Program Files/**)",
+      "Read(//c/Program Files \\(x86\\)/**)",
+      "Bash(bun --version)",
+      "Bash(deno --version)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git rm *)",
+      "Bash(npm -v)",
+      "Bash(npm view *)",
+      "Bash(node *)"
+    ]
+  }
+}
