@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 const SAMPLE_QUERIES = [
   { label: 'Powerplay', query: "Why did GT lose the powerplay vs RCB?" },
@@ -26,16 +27,28 @@ export default function QueryBar({ onSubmit, loading }) {
   };
 
   return (
-    <div className="animate-slide-up">
-      <form onSubmit={handleSubmit} className="relative query-underline" style={{ marginBottom: 16 }}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <form onSubmit={handleSubmit} style={{ marginBottom: 16, position: 'relative' }}>
         <div style={{
           display: 'flex', alignItems: 'center', gap: 12,
           background: 'var(--bg-tertiary)', borderRadius: 12,
           border: '1px solid var(--border)', padding: '14px 18px',
           transition: 'border-color 0.2s ease',
+          position: 'relative',
+          zIndex: 1,
         }}>
           {loading ? (
-            <span className="spin" style={{ fontSize: 20 }}>🏏</span>
+            <motion.span
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+              style={{ fontSize: 20, display: 'inline-block' }}
+            >
+              🏏
+            </motion.span>
           ) : (
             <span style={{ fontSize: 20 }}>🔍</span>
           )}
@@ -50,8 +63,10 @@ export default function QueryBar({ onSubmit, loading }) {
               color: 'var(--text-primary)', fontSize: 16, fontFamily: 'var(--font-ui)',
             }}
           />
-          <button
+          <motion.button
             type="submit"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
             disabled={loading || !query.trim()}
             style={{
               background: query.trim() ? 'var(--accent-teal)' : 'var(--bg-secondary)',
@@ -62,13 +77,28 @@ export default function QueryBar({ onSubmit, loading }) {
             }}
           >
             {loading ? 'Analysing…' : 'Analyse'}
-          </button>
+          </motion.button>
         </div>
+        {/* Custom Underline Sweep */}
+        <motion.div
+          initial={false}
+          animate={{
+            width: query.length > 0 ? '100%' : '0%',
+            opacity: query.length > 0 ? 1 : 0
+          }}
+          style={{
+            position: 'absolute', bottom: 0, left: 0, height: 2,
+            background: 'var(--accent-teal)', transition: 'all 0.3s ease',
+            zIndex: 2
+          }}
+        />
       </form>
       <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
         {SAMPLE_QUERIES.map((chip, i) => (
-          <button
+          <motion.button
             key={i}
+            whileHover={{ scale: 1.05, borderColor: 'var(--accent-teal)', color: 'var(--text-primary)', background: 'rgba(29,158,117,0.08)' }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => handleChip(chip.query)}
             disabled={loading}
             style={{
@@ -77,13 +107,11 @@ export default function QueryBar({ onSubmit, loading }) {
               fontSize: 12, fontFamily: 'var(--font-ui)', cursor: 'pointer',
               transition: 'all 0.2s ease', fontWeight: 500,
             }}
-            onMouseEnter={(e) => { e.target.style.borderColor = 'var(--accent-teal)'; e.target.style.color = 'var(--text-primary)'; }}
-            onMouseLeave={(e) => { e.target.style.borderColor = 'var(--border)'; e.target.style.color = 'var(--text-secondary)'; }}
           >
             {chip.label}
-          </button>
+          </motion.button>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

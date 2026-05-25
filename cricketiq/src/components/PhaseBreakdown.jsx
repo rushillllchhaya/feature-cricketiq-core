@@ -1,16 +1,27 @@
 import React from 'react';
-import { getStatusColor } from '../utils/dataHelpers';
-import { JARGON } from '../utils/dataHelpers';
+import { motion } from 'framer-motion';
+import { getStatusColor, JARGON } from '../utils/dataHelpers';
 
 function PhaseCard({ label, data, delay, showTooltips }) {
   if (!data) return null;
   const statusColor = getStatusColor(data.status);
 
   return (
-    <div className="card pop-in" style={{
-      animationDelay: `${delay}ms`, flex: '1 1 200px', minWidth: 180,
-      borderTop: `3px solid ${statusColor}`, position: 'relative', overflow: 'hidden',
-    }}>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.85, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+        delay: delay / 1000
+      }}
+      className="card"
+      style={{
+        flex: '1 1 200px', minWidth: 180,
+        borderTop: `3px solid ${statusColor}`, position: 'relative', overflow: 'hidden',
+      }}
+    >
       <div style={{
         position: 'absolute', bottom: 0, left: 0, right: 0, height: 4,
         background: statusColor, opacity: 0.3,
@@ -44,14 +55,14 @@ function PhaseCard({ label, data, delay, showTooltips }) {
           {data.status?.toUpperCase()}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 export default function PhaseBreakdown({ data, showTooltips }) {
   if (!data) return null;
   return (
-    <div className="animate-slide-up delay-400" style={{ display: 'flex', gap: 16, marginTop: 20, flexWrap: 'wrap' }}>
+    <div style={{ display: 'flex', gap: 16, marginTop: 20, flexWrap: 'wrap' }}>
       <PhaseCard label="Powerplay" data={data.powerplay} delay={0} showTooltips={showTooltips} />
       <PhaseCard label="Middle Overs" data={data.middle} delay={80} showTooltips={showTooltips} />
       <PhaseCard label="Death Overs" data={data.death} delay={160} showTooltips={showTooltips} />

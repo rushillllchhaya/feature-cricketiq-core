@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const MESSAGES = [
   "Reviewing the footage…",
@@ -21,19 +22,41 @@ export default function LoadingState() {
   }, []);
 
   return (
-    <div className="fade-in" style={{ marginTop: 24 }}>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      style={{ marginTop: 24 }}
+    >
       {/* Loading message */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20 }}>
-        <span className="spin" style={{ fontSize: 22 }}>🏏</span>
-        <span style={{ fontSize: 14, color: 'var(--accent-teal)', fontFamily: 'var(--font-ui)', fontWeight: 500 }}>
-          {MESSAGES[msgIndex]}
-        </span>
+        <motion.span
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+          style={{ fontSize: 22 }}
+        >
+          🏏
+        </motion.span>
+        <AnimatePresence mode="wait">
+          <motion.span
+            key={msgIndex}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            style={{ fontSize: 14, color: 'var(--accent-teal)', fontFamily: 'var(--font-ui)', fontWeight: 500 }}
+          >
+            {MESSAGES[msgIndex]}
+          </motion.span>
+        </AnimatePresence>
       </div>
+
       {/* Skeleton: Answer */}
       <div className="card" style={{ marginBottom: 16 }}>
         <div className="skeleton" style={{ height: 18, width: '90%', marginBottom: 10 }} />
         <div className="skeleton" style={{ height: 18, width: '70%' }} />
       </div>
+
       {/* Skeleton: Metrics */}
       <div style={{ display: 'flex', gap: 16, marginBottom: 16, flexWrap: 'wrap' }}>
         {[1,2,3,4].map(i => (
@@ -44,6 +67,7 @@ export default function LoadingState() {
           </div>
         ))}
       </div>
+
       {/* Skeleton: Chart */}
       <div className="card">
         <div className="skeleton" style={{ height: 12, width: '30%', marginBottom: 16 }} />
@@ -54,6 +78,6 @@ export default function LoadingState() {
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

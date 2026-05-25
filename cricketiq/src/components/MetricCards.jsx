@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { useCountUp } from '../hooks/useCountUp';
 import { formatDelta } from '../utils/dataHelpers';
 
@@ -11,10 +12,21 @@ function MetricCard({ label, value, delta, trend, delay }) {
   const trendColor = trend === 'up' ? 'var(--accent-teal)' : trend === 'down' ? 'var(--accent-red)' : 'var(--accent-amber)';
 
   return (
-    <div className="card pop-in" style={{
-      animationDelay: `${delay}ms`, flex: '1 1 200px', minWidth: 180,
-      position: 'relative', overflow: 'hidden',
-    }}>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.85, y: 20 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 20,
+        delay: delay / 1000
+      }}
+      className="card"
+      style={{
+        flex: '1 1 200px', minWidth: 180,
+        position: 'relative', overflow: 'hidden',
+      }}
+    >
       <div style={{
         position: 'absolute', top: 0, right: 0, width: 60, height: 60,
         background: `radial-gradient(circle at top right, ${trendColor}15, transparent 70%)`,
@@ -29,14 +41,14 @@ function MetricCard({ label, value, delta, trend, delay }) {
         <span style={{ color: trendColor, fontSize: 14, fontWeight: 700 }}>{formatDelta(trend)}</span>
         <span style={{ fontSize: 13, color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)' }}>{delta}</span>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 export default function MetricCards({ metrics }) {
   if (!metrics?.length) return null;
   return (
-    <div className="animate-slide-up delay-200" style={{ display: 'flex', gap: 16, marginTop: 20, flexWrap: 'wrap' }}>
+    <div style={{ display: 'flex', gap: 16, marginTop: 20, flexWrap: 'wrap' }}>
       {metrics.map((m, i) => (
         <MetricCard key={i} {...m} delay={i * 100} />
       ))}

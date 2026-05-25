@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { BAR_COLORS } from '../utils/dataHelpers';
 
 export default function PowerplayChart({ data }) {
-  const [animated, setAnimated] = useState(false);
-
-  useEffect(() => {
-    setAnimated(false);
-    const t = setTimeout(() => setAnimated(true), 100);
-    return () => clearTimeout(t);
-  }, [data]);
-
   if (!data?.length) return null;
   const max = Math.max(...data.map(d => d.value)) * 1.15;
 
   return (
-    <div className="card animate-slide-up delay-300" style={{ marginTop: 20 }}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="card"
+      style={{ marginTop: 20 }}
+    >
       <h3 style={{ fontSize: 14, fontWeight: 600, color: 'var(--text-secondary)', marginBottom: 16, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
         Run Rate Comparison
       </h3>
@@ -25,25 +24,31 @@ export default function PowerplayChart({ data }) {
               {item.team}
             </span>
             <div style={{ flex: 1, height: 32, background: 'var(--bg-primary)', borderRadius: 6, overflow: 'hidden', position: 'relative' }}>
-              <div
-                className="bar-grow"
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: `${(item.value / max) * 100}%` }}
+                transition={{
+                  duration: 0.7,
+                  delay: i * 0.08,
+                  type: "spring",
+                  stiffness: 60,
+                  damping: 15
+                }}
                 style={{
-                  width: animated ? `${(item.value / max) * 100}%` : '0%',
                   height: '100%',
                   background: `linear-gradient(90deg, ${BAR_COLORS[item.color] || BAR_COLORS.teal}, ${BAR_COLORS[item.color] || BAR_COLORS.teal}dd)`,
                   borderRadius: 6,
-                  transitionDelay: `${i * 80}ms`,
                   display: 'flex', alignItems: 'center', justifyContent: 'flex-end', paddingRight: 10,
                 }}
               >
                 <span style={{ fontSize: 13, fontFamily: 'var(--font-mono)', fontWeight: 600, color: '#fff' }}>
                   {item.value}
                 </span>
-              </div>
+              </motion.div>
             </div>
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }

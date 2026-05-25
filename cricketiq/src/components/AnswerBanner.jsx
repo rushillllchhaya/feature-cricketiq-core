@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function AnswerBanner({ narrative, isNewbie, onSpeak, speaking }) {
   const [displayed, setDisplayed] = useState('');
@@ -24,7 +25,13 @@ export default function AnswerBanner({ narrative, isNewbie, onSpeak, speaking })
   if (!narrative) return null;
 
   return (
-    <div className="card animate-slide-up delay-100" style={{ marginTop: 24 }}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="card"
+      style={{ marginTop: 24 }}
+    >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12 }}>
         <div style={{ flex: 1 }}>
           <p style={{
@@ -38,7 +45,9 @@ export default function AnswerBanner({ narrative, isNewbie, onSpeak, speaking })
           />
           {!done && <span className="typewriter-cursor" />}
         </div>
-        <button
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
           onClick={() => onSpeak(narrative)}
           style={{
             background: speaking ? 'var(--accent-teal)' : 'var(--bg-tertiary)',
@@ -49,17 +58,24 @@ export default function AnswerBanner({ narrative, isNewbie, onSpeak, speaking })
           title={speaking ? 'Stop' : 'Listen'}
         >
           {speaking ? '🔊' : '🔈'}
-        </button>
+        </motion.button>
       </div>
-      {isNewbie && (
-        <div style={{
-          marginTop: 12, padding: '8px 12px', background: 'rgba(29,158,117,0.08)',
-          borderRadius: 8, borderLeft: '3px solid var(--accent-teal)',
-          fontSize: 13, color: 'var(--text-secondary)', fontFamily: 'var(--font-ai)',
-        }}>
-          🎓 Beginner mode active
-        </div>
-      )}
-    </div>
+      <AnimatePresence>
+        {isNewbie && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            style={{
+              marginTop: 12, padding: '8px 12px', background: 'rgba(29,158,117,0.08)',
+              borderRadius: 8, borderLeft: '3px solid var(--accent-teal)',
+              fontSize: 13, color: 'var(--text-secondary)', fontFamily: 'var(--font-ai)',
+            }}
+          >
+            🎓 Beginner mode active
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
