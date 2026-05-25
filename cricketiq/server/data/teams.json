@@ -1,0 +1,142 @@
+[
+  {
+    "id": "CSK", "name": "Chennai Super Kings", "short": "CSK", "color": "#FDB913",
+    "season": { "matches": 14, "wins": 8, "losses": 6, "nrr": "+0.432" },
+    "phases": {
+      "powerplay": { "avg_run_rate": 7.8, "avg_wickets": 1.4, "dot_pct": 38, "boundary_pct": 22 },
+      "middle": { "avg_run_rate": 7.2, "avg_wickets": 2.1, "dot_pct": 42, "boundary_pct": 18 },
+      "death": { "avg_run_rate": 10.5, "avg_wickets": 2.8, "dot_pct": 30, "boundary_pct": 28 }
+    },
+    "bowling_phases": {
+      "powerplay": { "avg_economy": 7.6, "avg_wickets": 1.6, "dot_pct": 40 },
+      "middle": { "avg_economy": 7.0, "avg_wickets": 2.3, "dot_pct": 44 },
+      "death": { "avg_economy": 10.2, "avg_wickets": 2.5, "dot_pct": 32 }
+    }
+  },
+  {
+    "id": "MI", "name": "Mumbai Indians", "short": "MI", "color": "#004BA0",
+    "season": { "matches": 14, "wins": 4, "losses": 10, "nrr": "-0.567" },
+    "phases": {
+      "powerplay": { "avg_run_rate": 8.9, "avg_wickets": 1.2, "dot_pct": 34, "boundary_pct": 26 },
+      "middle": { "avg_run_rate": 6.8, "avg_wickets": 3.0, "dot_pct": 46, "boundary_pct": 15 },
+      "death": { "avg_run_rate": 9.8, "avg_wickets": 3.2, "dot_pct": 33, "boundary_pct": 25 }
+    },
+    "bowling_phases": {
+      "powerplay": { "avg_economy": 8.2, "avg_wickets": 1.3, "dot_pct": 36 },
+      "middle": { "avg_economy": 7.5, "avg_wickets": 1.8, "dot_pct": 40 },
+      "death": { "avg_economy": 11.0, "avg_wickets": 2.0, "dot_pct": 28 }
+    }
+  },
+  {
+    "id": "RCB", "name": "Royal Challengers Bengaluru", "short": "RCB", "color": "#EC1C24",
+    "season": { "matches": 14, "wins": 7, "losses": 7, "nrr": "+0.105" },
+    "phases": {
+      "powerplay": { "avg_run_rate": 8.2, "avg_wickets": 1.5, "dot_pct": 36, "boundary_pct": 24 },
+      "middle": { "avg_run_rate": 7.5, "avg_wickets": 2.3, "dot_pct": 40, "boundary_pct": 19 },
+      "death": { "avg_run_rate": 10.8, "avg_wickets": 2.5, "dot_pct": 31, "boundary_pct": 27 }
+    },
+    "bowling_phases": {
+      "powerplay": { "avg_economy": 7.4, "avg_wickets": 1.7, "dot_pct": 42 },
+      "middle": { "avg_economy": 6.8, "avg_wickets": 2.5, "dot_pct": 45 },
+      "death": { "avg_economy": 10.5, "avg_wickets": 2.3, "dot_pct": 30 }
+    }
+  },
+  {
+    "id": "GT", "name": "Gujarat Titans", "short": "GT", "color": "#1C1C2B",
+    "season": { "matches": 14, "wins": 5, "losses": 9, "nrr": "-0.312" },
+    "phases": {
+      "powerplay": { "avg_run_rate": 6.3, "avg_wickets": 2.0, "dot_pct": 44, "boundary_pct": 17 },
+      "middle": { "avg_run_rate": 7.0, "avg_wickets": 2.5, "dot_pct": 43, "boundary_pct": 16 },
+      "death": { "avg_run_rate": 9.5, "avg_wickets": 3.0, "dot_pct": 35, "boundary_pct": 23 }
+    },
+    "bowling_phases": {
+      "powerplay": { "avg_economy": 8.0, "avg_wickets": 1.4, "dot_pct": 38 },
+      "middle": { "avg_economy": 7.3, "avg_wickets": 2.0, "dot_pct": 42 },
+      "death": { "avg_economy": 10.8, "avg_wickets": 2.2, "dot_pct": 29 }
+    }
+  },
+  {
+    "id": "KKR", "name": "Kolkata Knight Riders", "short": "KKR", "color": "#3A225D",
+    "season": { "matches": 14, "wins": 9, "losses": 5, "nrr": "+0.721" },
+    "phases": {
+      "powerplay": { "avg_run_rate": 8.5, "avg_wickets": 1.3, "dot_pct": 35, "boundary_pct": 25 },
+      "middle": { "avg_run_rate": 7.8, "avg_wickets": 2.0, "dot_pct": 39, "boundary_pct": 20 },
+      "death": { "avg_run_rate": 11.0, "avg_wickets": 2.3, "dot_pct": 29, "boundary_pct": 30 }
+    },
+    "bowling_phases": {
+      "powerplay": { "avg_economy": 7.2, "avg_wickets": 1.8, "dot_pct": 43 },
+      "middle": { "avg_economy": 6.5, "avg_wickets": 2.6, "dot_pct": 47 },
+      "death": { "avg_economy": 9.8, "avg_wickets": 2.7, "dot_pct": 33 }
+    }
+  },
+  {
+    "id": "DC", "name": "Delhi Capitals", "short": "DC", "color": "#004C93",
+    "season": { "matches": 14, "wins": 6, "losses": 8, "nrr": "-0.189" },
+    "phases": {
+      "powerplay": { "avg_run_rate": 7.6, "avg_wickets": 1.6, "dot_pct": 39, "boundary_pct": 21 },
+      "middle": { "avg_run_rate": 7.1, "avg_wickets": 2.4, "dot_pct": 43, "boundary_pct": 17 },
+      "death": { "avg_run_rate": 10.0, "avg_wickets": 2.9, "dot_pct": 32, "boundary_pct": 26 }
+    },
+    "bowling_phases": {
+      "powerplay": { "avg_economy": 7.8, "avg_wickets": 1.5, "dot_pct": 39 },
+      "middle": { "avg_economy": 7.2, "avg_wickets": 2.1, "dot_pct": 43 },
+      "death": { "avg_economy": 10.6, "avg_wickets": 2.3, "dot_pct": 30 }
+    }
+  },
+  {
+    "id": "RR", "name": "Rajasthan Royals", "short": "RR", "color": "#EA1A85",
+    "season": { "matches": 14, "wins": 8, "losses": 6, "nrr": "+0.389" },
+    "phases": {
+      "powerplay": { "avg_run_rate": 8.0, "avg_wickets": 1.4, "dot_pct": 37, "boundary_pct": 23 },
+      "middle": { "avg_run_rate": 7.4, "avg_wickets": 2.2, "dot_pct": 41, "boundary_pct": 18 },
+      "death": { "avg_run_rate": 10.6, "avg_wickets": 2.6, "dot_pct": 31, "boundary_pct": 27 }
+    },
+    "bowling_phases": {
+      "powerplay": { "avg_economy": 7.5, "avg_wickets": 1.6, "dot_pct": 41 },
+      "middle": { "avg_economy": 6.9, "avg_wickets": 2.4, "dot_pct": 44 },
+      "death": { "avg_economy": 10.3, "avg_wickets": 2.4, "dot_pct": 31 }
+    }
+  },
+  {
+    "id": "PBKS", "name": "Punjab Kings", "short": "PBKS", "color": "#ED1B24",
+    "season": { "matches": 14, "wins": 5, "losses": 9, "nrr": "-0.445" },
+    "phases": {
+      "powerplay": { "avg_run_rate": 7.4, "avg_wickets": 1.8, "dot_pct": 40, "boundary_pct": 20 },
+      "middle": { "avg_run_rate": 6.9, "avg_wickets": 2.7, "dot_pct": 45, "boundary_pct": 15 },
+      "death": { "avg_run_rate": 9.6, "avg_wickets": 3.1, "dot_pct": 34, "boundary_pct": 24 }
+    },
+    "bowling_phases": {
+      "powerplay": { "avg_economy": 8.3, "avg_wickets": 1.2, "dot_pct": 35 },
+      "middle": { "avg_economy": 7.6, "avg_wickets": 1.9, "dot_pct": 39 },
+      "death": { "avg_economy": 11.2, "avg_wickets": 1.8, "dot_pct": 27 }
+    }
+  },
+  {
+    "id": "SRH", "name": "Sunrisers Hyderabad", "short": "SRH", "color": "#FF822A",
+    "season": { "matches": 14, "wins": 7, "losses": 7, "nrr": "+0.245" },
+    "phases": {
+      "powerplay": { "avg_run_rate": 9.1, "avg_wickets": 1.1, "dot_pct": 32, "boundary_pct": 28 },
+      "middle": { "avg_run_rate": 7.6, "avg_wickets": 2.2, "dot_pct": 40, "boundary_pct": 20 },
+      "death": { "avg_run_rate": 11.4, "avg_wickets": 2.4, "dot_pct": 28, "boundary_pct": 31 }
+    },
+    "bowling_phases": {
+      "powerplay": { "avg_economy": 8.5, "avg_wickets": 1.1, "dot_pct": 34 },
+      "middle": { "avg_economy": 7.8, "avg_wickets": 1.7, "dot_pct": 38 },
+      "death": { "avg_economy": 11.5, "avg_wickets": 1.9, "dot_pct": 26 }
+    }
+  },
+  {
+    "id": "LSG", "name": "Lucknow Super Giants", "short": "LSG", "color": "#A72056",
+    "season": { "matches": 14, "wins": 6, "losses": 8, "nrr": "-0.156" },
+    "phases": {
+      "powerplay": { "avg_run_rate": 7.5, "avg_wickets": 1.5, "dot_pct": 39, "boundary_pct": 21 },
+      "middle": { "avg_run_rate": 7.1, "avg_wickets": 2.3, "dot_pct": 42, "boundary_pct": 17 },
+      "death": { "avg_run_rate": 10.1, "avg_wickets": 2.7, "dot_pct": 32, "boundary_pct": 25 }
+    },
+    "bowling_phases": {
+      "powerplay": { "avg_economy": 7.7, "avg_wickets": 1.5, "dot_pct": 40 },
+      "middle": { "avg_economy": 7.1, "avg_wickets": 2.2, "dot_pct": 43 },
+      "death": { "avg_economy": 10.4, "avg_wickets": 2.3, "dot_pct": 31 }
+    }
+  }
+]
